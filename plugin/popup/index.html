@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="styles.css">
+<script src="jquery-3.2.0.min.js"></script>
+</head>
+<body>
+  <h1>Плагин</h1>
+  <div class="pages">
+    <div class="page" id="noconnection">
+      <h2>Здесь нет нашего скрипта</h2>
+      <p>нажмите на эту кнопку когда будете находиться на странице со списком заявок</p>
+    </div>
+    <div class="page" id="noinfo">
+      <h2>Скрипт несет фигню</h2>
+      <p>возможно он работает неправильно или не успел проинициализироваться. попробуйте перегрузить страницу и повторно вызвать плагин</p>
+    </div>
+    <div class="page" id="nodocs">
+      <h2>Сорян</h2>
+      <p>нет заявок для отправки</p>
+    </div>
+    <div class="page" id="upload">
+      <h2>Получены данные для <span class="num"></span> заявок</h2>
+      <button type="submit" id="dosubmit">Начать аплоад</button>
+    </div>
+    <div class="page" id="done">
+      <h2>Готово!</h2>
+    </div>
+  </div>
+  <script src="connect.js"></script>
+</body>
+</html>

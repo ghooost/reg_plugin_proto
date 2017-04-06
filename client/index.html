@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"   integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="   crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+</head>
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12">
+        <h1>Это страница нашей системы</h1>
+        <p>Здесь находятся данные, которые надо запостить на сайт регистрации. Данные оформлены в виде json:</p>
+        <xmp id="dataShow"></xmp>
+        <p>Сюда же нужно вставить скрипт:</p>
+        <xmp id="codeShow"></xmp>
+        <script id="myData">
+          var dataToPost={
+            url:"http://ghost.aesthetic.ru/plugin/proto/rosreg/index.html",
+            data:[
+              {
+                "id":1,
+                "name":"это тестовый айтем 1"
+              },
+              {
+                "id":2,
+                "name":"это тестовый айтем 2"
+              },
+              {
+                "id":3,
+                "name":"это тестовый айтем 3"
+              }
+            ]
+          };
+        </script>
+        <script id="myCode">
+        window.addEventListener("message", function(event){
+          switch(event.data.action){
+            case 'hello':
+              if(event.source==window){
+                dataToPost.action='dataResponse';
+                event.source.postMessage(dataToPost,"*");
+              }
+            break;
+          }
+        }, false);
+        </script>
+
+        <script>
+        document.querySelector('#dataShow').innerHTML=document.querySelector('#myData').innerHTML;
+        document.querySelector('#codeShow').innerHTML=document.querySelector('#myCode').innerHTML;
+        </script>
+<!--
+        <button type="submit" class="btn btn-default">Давайте постить</button>
+-->
+      </div>
+    </div>
+  </div>
+</body>
+</html>

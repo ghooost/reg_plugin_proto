@@ -1,0 +1,31 @@
+{
+  "manifest_version": 2,
+  "name": "PluginProto",
+  "version": "1.0",
+
+  "description": "Fills a form at a test site",
+
+  "icons": {
+    "48": "icons/48.png",
+    "96": "icons/96.png"
+  },
+
+  "permissions": [
+      "activeTab",
+      "tabs",
+      "<all_urls>"
+  ],
+
+  "content_scripts": [
+    {
+      "matches": ["*://ghost.aesthetic.ru/plugin/proto/client/*"],
+      "js": ["runinsidesrc.js"]
+    }
+  ],
+
+  "browser_action": {
+      "default_icon": "icons/32.png",
+      "default_title": "PluginProto",
+      "default_popup": "popup/index.html"
+  }
+}
