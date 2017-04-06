@@ -25,21 +25,7 @@ module.exports = {
 		]
 	},
 	watch: NODE_ENV == "development",
-/*
 	watchOptions: {
 		aggregateTimeout: 300
-	},
-	devtool: NODE_ENV == "development" ? "cheap-inline-source-map" : null,
-	plugins: NODE_ENV == "development" ? [
-	] : [
-		new webpack.optimize.UglifyJsPlugin({
-			compress: {
-				unused: false,
-			},
-			mangle: {
-				keep_fnames: true,
-			},
-		}),
-	],
-*/
+	}
 }
